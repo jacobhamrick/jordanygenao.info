@@ -1,0 +1,397 @@
+body {
+  /* Margin bottom by footer height */
+  height: 100vh;
+  /*background: rgb(204,136,0);
+  background: linear-gradient(0deg, rgba(204,136,0,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 100%);*/
+}
+
+/* ------ fonts ------ */
+$primary-font: 'Poppins', sans-serif;
+$secondary-font: 'Helvetica', sans-serif;
+
+/* ------ colors ------ */
+$pink: #ff80dd;
+
+/* ------ menu + grid settings ------ */
+$main-menu-padding: 0 12%;
+$pink-borders: 1px solid $pink;
+$main-width: 66rem;
+
+
+/***** Scrollbar *****/
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 0;
+    border-left: $pink-borders;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: black;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: white;
+}
+/***** end of scrollbar *****/
+
+/* Misc global styles */
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #000;
+}
+p {
+  margin-bottom: 0;
+}
+hr {
+  margin: 5px 0;
+  border-top: $pink-borders;
+}
+.active {
+  color: $pink;
+}
+
+/* --------------------------------------------------------------
+   ----------------- Entrance / Landing Page --------------------
+   -------------------------------------------------------------- */
+.sockDiv {
+  text-align: center;
+  position: fixed;
+  display: block;
+  width: 100%;
+  bottom: 100px;
+
+}
+.sockImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+	height: 100px;
+}
+
+.sockImg:hover {
+  height: 120px;
+  transform: translateX(-10px)rotate(-10deg);
+}
+
+.entranceImg {
+  padding-top: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+/* --------------------------------------------------------------
+   --------------------- Banner and Menu ------------------------
+   -------------------------------------------------------------- */
+.jgBanner {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  img {
+    height: 10em;
+  }
+}
+
+.jG {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  width: $main-width;
+  height: 40px;
+  text-align: center;
+  border: $pink-borders;
+  border-bottom: none;
+ 	font-family: $primary-font;
+  color: #000;
+ 	font-size: 22px;
+ 	text-transform: uppercase;
+ 	margin: 0 auto;
+  line-height: 1.8;
+}
+
+ .mainMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: $main-width;
+  position: relative;
+  border: $pink-borders;
+  border-bottom: none;
+  background-color: white;
+  z-index: 100;
+  text-align: center;
+  margin: 0 auto;
+ }
+
+.menuBar {
+  border-bottom: $pink-borders;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  height: 40px;
+  font-family: $primary-font;
+  padding: $main-menu-padding;
+  line-height: 2;
+  a {
+   text-transform: uppercase;
+
+   font-size: 19px;
+   margin: 0 auto;
+   line-height: 2;
+  }
+}
+
+/* only on the work page */
+.filterBar {
+  padding: 0;
+  border-bottom: $pink-borders;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #fff;
+  height: 40px;
+}
+
+#artFilters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#artFilters button:focus, #artFilters button:focus {
+ outline: 0 none;
+ box-shadow: none;
+ color: $pink;
+}
+
+#artFilters button.btn.selected {
+ color: $pink;
+}
+
+#artFilters button {
+	font-family: $primary-font;
+	color: #000;
+	font-size: 16px;
+  padding: 0;
+  margin: 0;
+	background-color: transparent;
+  text-transform: uppercase;
+}
+
+/* hover links PINK */
+.jG:hover,
+.mainMenu a:hover,
+.textLink a:hover,
+#artFilters button:hover,
+.footer a:hover {
+ transition: 0.5s ease;
+ color: $pink;
+ text-decoration: none;
+}
+
+.jG:focus,
+.mainMenu a:focus,
+.textLink a:focus,
+#artFilters button:focus,
+.footer a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------
+   ------------------- mainMenu fixed after scroll --------------
+   -------------------------------------------------------------- */
+.mainMenu.fixed {
+ z-index: 100;
+ position: fixed;
+ margin: 0 auto;
+ top: 0;
+ left: 50%;
+ margin-left: calc(#{$main-width}/-2);
+ background-color: #fff;
+ text-align: center;
+}
+
+.mainMenu.small {
+  position: absolute;
+}
+
+/* --------------------------------------------------------------
+   ------------------------ Home Page ---------------------------
+   -------------------------------------------------------------- */
+.welcomeHomeImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* --------------------------------------------------------------
+   ------------------------ Work Page ---------------------------
+   -------------------------------------------------------------- */
+.portfolio {
+  width: $main-width;
+  max-height: 40rem;
+  min-height: 40rem;
+  overflow-y:auto;
+  border: $pink-borders;
+  border-top: none;
+  background-color: #fff;
+    margin: 0 auto;
+}
+
+.grid {
+  display: none; /* stops content from flashing before fading in */
+  flex-direction: row;
+  justify-content: space-around;
+  min-height: 45rem;
+  padding: 10px 0;
+  position: relative;
+ }
+
+ a.fancybox {
+   outline: none;
+ }
+
+ .grid-item {
+   margin: calc((#{$main-width} - (3 * 20rem) - 10px) / 4);
+   // (main-width - (number of items in grid row * grid-item width) - scrollbar width) / num of blank spaces
+   margin-right: 0; // aesthetics
+   img {
+     width: 20rem;
+   }
+ }
+
+ /* clearfix */
+ .grid:after {
+   content: '';
+   clear: both;
+   visibility: hidden;
+   padding: 50px 0px 10px 0px;
+   margin: 0 auto;
+ }
+
+
+/* --------------------------------------------------------------
+   ------------------------- About/CV ---------------------------
+   -------------------------------------------------------------- */
+.aboutText {
+	text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+#aboutDiv {
+  margin-left: 5px; /* accomodates scrollbar width, centering looks better */
+  display: none; /* stops content from flashing before fading in */
+}
+
+#cvDiv,
+#aboutDiv {
+	margin:0 ;
+  padding: 20px 10em;
+}
+
+.cvYear {
+	font-weight: bold;
+}
+
+.cvTitle {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.cvText, .cvTitle, .cvYear, .aboutText, #aboutDiv p, .textLink {
+	display: inline-block;
+	color: #000;
+	font-size: 12px;
+}
+
+/* --------------------------------------------------------------
+   -------------------------- Footer ----------------------------
+   -------------------------------------------------------------- */
+.footer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+	text-align: center;
+	font-size: 10px;
+	color: #000;
+	background-color: #fff;
+	width: $main-width;
+  border: $pink-borders;
+  border-top: none;
+	height: 30px;
+	margin: 0 auto;
+  p{
+    margin: 0;
+  }
+  a {
+    color: #000;
+  }
+}
+
+
+
+/* Other Devices CSS */
+@media screen and (max-width : 875px) {
+	.jg,
+  .mainMenu,
+  .menuBar,
+  .filterBar,
+  .grid,
+  .portfolio,
+  .fotter {
+    width: 30em;
+  }
+
+  .entranceImg {
+    padding-top: 100px;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width : 660px) {
+
+
+@media screen and (max-width: 640px) {
+	#entranceBody {
+
+    background: url("/images/ENTRANCE.jpg") center center no-repeat fixed;
+    -webkit-background-size: 95%;
+    -moz-background-size: 95%;
+    -o-background-size: 95%;
+    background-size: 95%;
+}
+/*	.grid {
+		width: 240px;
+		margin: 0 auto;
+	}
+	button.btn {
+		padding: 3px;
+	}
+
+	#aboutDiv, #cvDiv {
+		width: 280px;
+	}
+
+	.grid-item img{
+		width: 220px;
+	}
+  .menuBar {
+    padding: 0 10px;
+  }
+
+  .welcomeHomeImg {
+    margin: 5% auto;
+    width: 80%;
+  } */
+}}
