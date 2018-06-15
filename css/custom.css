@@ -2,7 +2,8 @@ body {
   /* Margin bottom by footer height */
   height: 100vh;
   /*background: rgb(204,136,0);
-  background: linear-gradient(0deg, rgba(204,136,0,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 100%);*/ }
+  background: linear-gradient(0deg, rgba(204,136,0,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 100%);*/
+  padding-top: 10%; }
 
 /* ------ fonts ------ */
 /* ------ colors ------ */
@@ -51,11 +52,12 @@ hr {
   display: block;
   width: 100%;
   bottom: 100px; }
+  .sockDiv p {
+    font-size: 12px; }
 
 .sockImg {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto;
   height: 100px; }
 
 .sockImg:hover {
@@ -63,29 +65,24 @@ hr {
   transform: translateX(-10px) rotate(-10deg); }
 
 .entranceImg {
-  padding-top: 50px;
+  top: 25%;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%; }
+  margin: 0 auto;
+  width: 100vw;
+  position: absolute; }
 
 /* --------------------------------------------------------------
    --------------------- Banner and Menu ------------------------
    -------------------------------------------------------------- */
 .jgBanner {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px; }
-  .jgBanner img {
-    height: 10em; }
+  display: none; }
 
 .jG {
   display: flex;
   justify-content: center;
   background-color: #fff;
-  width: 66rem;
+  width: 80%;
   height: 40px;
-  text-align: center;
   border: 1px solid #ff80dd;
   border-bottom: none;
   font-family: "Poppins", sans-serif;
@@ -99,8 +96,7 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 66rem;
-  position: relative;
+  width: 80%;
   border: 1px solid #ff80dd;
   border-bottom: none;
   background-color: white;
@@ -132,13 +128,20 @@ hr {
   justify-content: space-around;
   width: 100%;
   background-color: #fff;
-  height: 40px; }
+  height: 75px; }
 
 #artFilters {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%; }
+  display: inline-block; }
+
+#artFilters button {
+  font-family: "Poppins", sans-serif;
+  color: #000;
+  font-size: 16px;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  text-transform: uppercase; }
 
 #artFilters button:focus, #artFilters button:focus {
   outline: 0 none;
@@ -147,15 +150,6 @@ hr {
 
 #artFilters button.btn.selected {
   color: #ff80dd; }
-
-#artFilters button {
-  font-family: "Poppins", sans-serif;
-  color: #000;
-  font-size: 16px;
-  padding: 0;
-  margin: 0;
-  background-color: transparent;
-  text-transform: uppercase; }
 
 /* hover links PINK */
 .jG:hover,
@@ -176,22 +170,6 @@ hr {
   text-decoration: none; }
 
 /* --------------------------------------------------------------
-   ------------------- mainMenu fixed after scroll --------------
-   -------------------------------------------------------------- */
-.mainMenu.fixed {
-  z-index: 100;
-  position: fixed;
-  margin: 0 auto;
-  top: 0;
-  left: 50%;
-  margin-left: calc(66rem/-2);
-  background-color: #fff;
-  text-align: center; }
-
-.mainMenu.small {
-  position: absolute; }
-
-/* --------------------------------------------------------------
    ------------------------ Home Page ---------------------------
    -------------------------------------------------------------- */
 .welcomeHomeImg {
@@ -204,9 +182,9 @@ hr {
    ------------------------ Work Page ---------------------------
    -------------------------------------------------------------- */
 .portfolio {
-  width: 66rem;
-  max-height: 40rem;
-  min-height: 40rem;
+  width: 80%;
+  max-height: 66%;
+  min-height: 66%;
   overflow-y: auto;
   border: 1px solid #ff80dd;
   border-top: none;
@@ -216,20 +194,18 @@ hr {
 .grid {
   display: none;
   /* stops content from flashing before fading in */
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
-  min-height: 45rem;
-  padding: 10px 0;
+  min-height: 40rem;
   position: relative; }
 
 a.fancybox {
   outline: none; }
 
 .grid-item {
-  margin: calc((66rem - (3 * 20rem) - 10px) / 4);
-  margin-right: 0; }
+  margin: 10px; }
   .grid-item img {
-    width: 20rem; }
+    width: 100%; }
 
 /* clearfix */
 .grid:after {
@@ -248,14 +224,14 @@ a.fancybox {
 
 #aboutDiv {
   margin-left: 5px;
-  /* accomodates scrollbar width, centering looks better */
-  display: none;
-  /* stops content from flashing before fading in */ }
+  /* accomodates scrollbar width, centering looks better */ }
 
 #cvDiv,
 #aboutDiv {
+  display: none;
+  /* stops content from flashing before fading in */
   margin: 0;
-  padding: 20px 10em; }
+  padding: 10px 15%; }
 
 .cvYear {
   font-weight: bold; }
@@ -280,7 +256,7 @@ a.fancybox {
   font-size: 10px;
   color: #000;
   background-color: #fff;
-  width: 66rem;
+  width: 80%;
   border: 1px solid #ff80dd;
   border-top: none;
   height: 30px;
@@ -290,47 +266,93 @@ a.fancybox {
   .footer a {
     color: #000; }
 
-/* Other Devices CSS */
-@media screen and (max-width: 875px) {
-  .jg,
-  .mainMenu,
-  .menuBar,
-  .filterBar,
-  .grid,
-  .portfolio,
-  .fotter {
-    width: 30em; }
+/* -----------------------------------------------------------------------------
+   ------------------------------ Larger Screens -------------------------------
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 768px) {
+  body {
+    height: 100%;
+    padding: 0; }
   .entranceImg {
-    padding-top: 100px;
-    width: 90%; } }
-
-@media screen and (max-width: 660px) and (max-width: 640px) {
-  #entranceBody {
-    background: url("/images/ENTRANCE.jpg") center center no-repeat fixed;
-    -webkit-background-size: 95%;
-    -moz-background-size: 95%;
-    -o-background-size: 95%;
-    background-size: 95%; }
-  /*	.grid {
-		width: 240px;
-		margin: 0 auto;
-	}
-	button.btn {
-		padding: 3px;
-	}
-
-	#aboutDiv, #cvDiv {
-		width: 280px;
-	}
-
-	.grid-item img{
-		width: 220px;
-	}
-  .menuBar {
-    padding: 0 10px;
-  }
-
-  .welcomeHomeImg {
-    margin: 5% auto;
+    top: 5rem;
+    width: 90vw;
+    left: 8%; }
+  /* --------------------------------------------------------------
+     --------------------- Banner and Menu ------------------------
+     -------------------------------------------------------------- */
+  .jgBanner {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    width: 50%; }
+    .jgBanner img {
+      height: 10em; }
+  /* only on the work page */
+  .filterBar {
+    flex-direction: row;
+    justify-content: space-around;
+    height: 40px; }
+  #artFilters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%; }
+  .jG,
+  .mainMenu,
+  .filterBar,
+  .footer {
+    max-width: 775px; }
+  /* --------------------------------------------------------------
+     ------------------------ Work Page ---------------------------
+     -------------------------------------------------------------- */
+  .portfolio {
     width: 80%;
-  } */ }
+    max-width: 775px;
+    max-height: 40rem;
+    min-height: 40rem; }
+  .grid {
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: 45rem;
+    padding: 10px 0 0 6px; }
+  a.fancybox {
+    outline: none; }
+  .grid-item {
+    margin: calc((100% - (3 * 20rem) - 10px) / 6);
+    width: 20rem; }
+  /* clearfix */
+  .grid:after {
+    content: '';
+    clear: both;
+    visibility: hidden;
+    padding: 50px 0px 10px 0px;
+    margin: 0 auto; }
+  /* --------------------------------------------------------------
+     ------------------------- About/CV ---------------------------
+     -------------------------------------------------------------- */
+  .aboutText {
+    text-align: justify;
+    text-justify: inter-ideograph; }
+  #aboutDiv {
+    margin-left: 5px;
+    /* accomodates scrollbar width, centering looks better */ }
+  #cvDiv,
+  #aboutDiv {
+    display: none;
+    /* stops content from flashing before fading in */
+    margin: 0;
+    padding: 20px 10em; }
+  .cvYear {
+    font-weight: bold; }
+  .cvTitle {
+    font-weight: bold;
+    font-size: 14px; }
+  .cvText,
+  .cvTitle,
+  .cvYear,
+  .aboutText,
+  #aboutDiv p,
+  .textLink {
+    display: inline-block;
+    color: #000;
+    font-size: 12px; } }

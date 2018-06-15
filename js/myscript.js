@@ -17,9 +17,9 @@ $(document).ready(function() {
   });
 
   //fade in divs on load - note that css init settings hide divs
-  $grid.css('display', 'flex').hide().fadeIn(300);
-  $('div#aboutDiv').fadeIn(300);
-  $('div#cvDiv').hide().fadeIn(300);
+  $grid.css('display', 'flex').hide().fadeIn(600);
+  $('div#aboutDiv').fadeIn(600);
+  $('div#cvDiv').hide().fadeIn(600);
 
   //highlights active art filter links
   $('.btn').on('click', function(){
@@ -38,7 +38,7 @@ $(document).ready(function() {
       $('.mainMenu').removeClass('fixed');
     }
   });
-  
+
   //fancybox init and options//
     $('.fancybox').attr('data-fancybox','gallery').fancybox({
       thumbs          : false,
