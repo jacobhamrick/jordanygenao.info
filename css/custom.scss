@@ -41,20 +41,19 @@ $main-max-width: 775px;
 /***** end of scrollbar *****/
 
 /* Misc global styles */
-* {
-  box-sizing: border-box;
-}
-
 a {
   color: #000;
 }
+
 p {
   margin-bottom: 0;
 }
+
 hr {
   margin: 5px 0;
   border-top: $pink-borders;
 }
+
 .active {
   color: $pink;
 }
@@ -217,7 +216,6 @@ hr {
 .portfolio {
   width: $main-width;
   max-height: 66%;
-  min-height: 66%;
   overflow-y:auto;
   border: $pink-borders;
   border-top: none;
@@ -229,7 +227,6 @@ hr {
   display: none; /* stops content from flashing before fading in */
   flex-direction: column;
   justify-content: space-around;
-  min-height: 40rem;
 
   position: relative;
  }
@@ -303,7 +300,7 @@ hr {
   border: $pink-borders;
   border-top: none;
 	height: 30px;
-	margin: 0 auto;
+	margin: 0 auto 20px auto;
   p{
     margin: 0;
   }
@@ -318,8 +315,8 @@ hr {
    -------------------------------------------------------------------------- */
 @media screen and (min-width : 768px) {
   body {
-    height: 100%;
-    padding: 0;
+    height: 100vh;
+    padding:0;
   }
 
   .entranceImg {
@@ -334,7 +331,7 @@ hr {
    .jgBanner {
      display: flex;
      justify-content: center;
-     margin: 20px auto;
+     margin: 0 auto;
      width: 50%;
 
      img {
@@ -368,14 +365,13 @@ hr {
   .portfolio {
     width: $main-width;
     max-width: $main-max-width;
-    max-height: 40rem;
-    min-height: 40rem;
+    min-height: 30em;
+    max-height: 30em;
   }
 
   .grid {
     flex-direction: row;
     justify-content: space-around;
-    min-height: 45rem;
     padding: 10px 0 0 6px;
   }
 
@@ -398,6 +394,9 @@ hr {
    margin: 0 auto;
  }
 
+ .footer{
+   margin-bottom: 20px;
+ }
 
   /* --------------------------------------------------------------
      ------------------------- About/CV ---------------------------

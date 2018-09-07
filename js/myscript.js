@@ -27,18 +27,6 @@ $(document).ready(function() {
       $(this).addClass('selected');
   });
 
-  //mainMenu stick after scroll//
-  $(window).scroll(function () {
-    var scroll = $(window).scrollTop();
-    if (( $(window).width() > 739) && ( scroll > 269)) {
-      $('.mainMenu').addClass('fixed')
-      $grid.addClass('postfix');
-    } else {
-      $grid.removeClass('postfix')
-      $('.mainMenu').removeClass('fixed');
-    }
-  });
-
   //fancybox init and options//
     $('.fancybox').attr('data-fancybox','gallery').fancybox({
       thumbs          : false,
