@@ -22,7 +22,7 @@ $(document).ready(function() {
   $('div#cvDiv').hide().fadeIn(600);
 
   //highlights active art filter links
-  $('.btn').on('click', function(){
+  $('.btn').on('click', function() {
       $('button').removeClass('selected');
       $(this).addClass('selected');
   });

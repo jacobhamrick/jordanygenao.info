@@ -3,7 +3,6 @@ body {
   height: 100vh;
   /*background: rgb(204,136,0);
   background: linear-gradient(0deg, rgba(204,136,0,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 100%);*/
-  padding-top: 10%;
 }
 
 /* ------ fonts ------ */
@@ -14,31 +13,20 @@ $secondary-font: 'Helvetica', sans-serif;
 $pink: #ff80dd;
 
 /* ------ menu + grid settings ------ */
-$main-menu-padding: 0 12%;
+$main-menu-padding: 0 30em;
 $pink-borders: 1px solid $pink;
-$main-width: 80%;
-$main-max-width: 775px;
+$main-width: 80vw;
+$menu-height: auto;
 
 
 
 /***** Scrollbar *****/
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    -webkit-border-radius: 20px;
-    border-radius: 0;
-    border-left: $pink-borders;
-}
-::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 0;
-    border-radius: 0;
-    background: black;
-}
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: white;
+  display: none;
 }
-/***** end of scrollbar *****/
 
 /* Misc global styles */
 a {
@@ -69,105 +57,87 @@ hr {
   bottom: 100px;
   p {
     font-size: 12px;
+    text-transform: capitalize;
+  }
+  a:hover {
+    text-decoration: none;
+    color: $pink;
   }
 }
 .sockImg {
-  display: block;
-  margin: 10px auto;
+  -webkit-transition: transform 0.5s;
+  transition: transform 0.5s;
+
 	height: 100px;
 }
 
 .sockImg:hover {
-  height: 120px;
-  transform: translateX(-10px)rotate(-10deg);
+  transform: scale(8)translateY(-30px)translateX(-10px);
+  -webkit-transition: transform 10s;
+  transition: transform 10s;
 }
 
 .entranceImg {
-  top: 25%;
-  display: block;
-  margin: 0 auto;
-  width: 100vw;
-  position: absolute;
+  background-image: url("/images/entrance.jpg");
+  width: 1vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80vw;
 }
 
 /* --------------------------------------------------------------
    --------------------- Banner and Menu ------------------------
    -------------------------------------------------------------- */
-.jgBanner {
-  display: none;
-}
+ #jgBanner {
+   display: none;
+ }
 
-.jG {
-  display: flex;
-  justify-content: center;
-  background-color: #fff;
-  width: $main-width;
-  height: 40px;
-  border: $pink-borders;
-  border-bottom: none;
- 	font-family: $primary-font;
-  color: #000;
- 	font-size: 22px;
- 	text-transform: uppercase;
- 	margin: 0 auto;
-  line-height: 1.8;
-}
-
- .mainMenu {
+ #mainMenu {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: $main-width;
-  border: $pink-borders;
-  border-bottom: none;
+  /*border: $pink-borders;*/
   background-color: white;
   z-index: 100;
-  text-align: center;
-  margin: 0 auto;
+  margin: 10px auto;
  }
 
-.menuBar {
-  border-bottom: $pink-borders;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  height: 40px;
-  font-family: $primary-font;
-  padding: $main-menu-padding;
-  line-height: 2;
-  a {
-   text-transform: uppercase;
-   font-size: 19px;
-   margin: 0 auto;
-   line-height: 2;
-  }
-}
-
-/* only on the work page */
-.filterBar {
-  padding: 0;
-  border-bottom: $pink-borders;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
-  background-color: #fff;
-  height: 75px;
-}
-
+#jG,
+#menuBar,
 #artFilters {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: $menu-height;
+  border-bottom: $pink-borders;
+  width: 100%;
+  color: #000;
+  background-color: #fff;
+}
+
+#jG,
+#menuBar {
+  font-family: $primary-font;
+  margin: 0 auto;
+  text-transform: uppercase;
+}
+
+#jG {
+  justify-content: center;
+ 	font-size: 5vw;
+}
+
+#menuBar a {
+   font-size: 4vw;
 }
 
 #artFilters button {
-	font-family: $primary-font;
-	color: #000;
-	font-size: 16px;
-  width: 50%;
+	font-family: $secondary-font;
   padding: 0;
-  margin: 0;
-	background-color: #fff;
-  text-transform: uppercase;
+	font-size: 3.3vw;
+  text-transform: lowercase;
+  background: #fff;
 }
 
 #artFilters button:focus, #artFilters button:focus {
@@ -181,8 +151,8 @@ hr {
 }
 
 /* hover links PINK */
-.jG:hover,
-.mainMenu a:hover,
+#jG:hover,
+#mainMenu a:hover,
 .textLink a:hover,
 #artFilters button:hover,
 .footer a:hover {
@@ -191,8 +161,8 @@ hr {
  text-decoration: none;
 }
 
-.jG:focus,
-.mainMenu a:focus,
+#jG:focus,
+#mainMenu a:focus,
 .textLink a:focus,
 #artFilters button:focus,
 .footer a:hover {
@@ -214,29 +184,26 @@ hr {
    ------------------------ Work Page ---------------------------
    -------------------------------------------------------------- */
 .portfolio {
-  width: $main-width;
-  max-height: 66%;
+
+  max-height: 100%;
   overflow-y:auto;
-  border: $pink-borders;
-  border-top: none;
   background-color: #fff;
   margin: 0 auto;
 }
 
 .grid {
+  width: $main-width;
   display: none; /* stops content from flashing before fading in */
   flex-direction: column;
   justify-content: space-around;
-
+  margin: 0 auto;
   position: relative;
  }
 
- a.fancybox {
-   outline: none;
- }
+
 
  .grid-item {
-    margin: 10px;
+    margin: 10px 0;
    img {
      width: 100%;
 
@@ -249,6 +216,7 @@ hr {
    visibility: hidden;
    padding: 50px 0px 10px 0px;
    margin: 0 auto;
+
  }
 
 /* --------------------------------------------------------------
@@ -296,11 +264,12 @@ hr {
 	font-size: 10px;
 	color: #000;
 	background-color: #fff;
-	width: $main-width;
-  border: $pink-borders;
+	width: 100vw;
+  /*border: $pink-borders;*/
   border-top: none;
-	height: 30px;
-	margin: 0 auto 20px auto;
+	height: 20px;
+	margin: 0 auto;
+  position: absolute;
   p{
     margin: 0;
   }
@@ -319,60 +288,85 @@ hr {
     padding:0;
   }
 
-  .entranceImg {
-    top: 5rem;
-    width: 90vw;
-    left: 8%;
-  }
+  /***** Scrollbar *****/
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 0;
+    border: $pink-borders;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: #000;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: #fff;
+}
+/***** end of scrollbar *****/
 
-  /* --------------------------------------------------------------
-     --------------------- Banner and Menu ------------------------
-     -------------------------------------------------------------- */
-   .jgBanner {
-     display: flex;
-     justify-content: center;
-     margin: 0 auto;
-     width: 50%;
+/* --------------------------------------------------------------
+   --------------------- Banner and Menu ------------------------
+   -------------------------------------------------------------- */
+ #jgBanner {
+   display: flex;
+   justify-content: center;
+   margin: 0 auto;
+   width: 50%;
 
-     img {
-       height: 10em;
-     }
+   img {
+     height: 10em;
    }
+ }
 
   /* only on the work page */
   .filterBar {
    flex-direction: row;
    justify-content: space-around;
-   height: 40px;
+   height: 30px;
   }
 
   #artFilters {
    display: flex;
    flex-direction: row;
-   justify-content: space-around;
+   justify-content: space-between;
    width: 100%;
   }
 
-  .jG,
-  .mainMenu,
+  #jG {
+    font-size: 2.8vw;
+  }
+
+  #menuBar a,
+  #artFilters button {
+    font-family: "Poppins", sans-serif;
+    font-size: 2vw;
+  }
+  #jG,
+  #mainMenu,
   .filterBar,
   .footer {
-    max-width: $main-max-width;
+
   }
   /* --------------------------------------------------------------
      ------------------------ Work Page ---------------------------
      -------------------------------------------------------------- */
   .portfolio {
     width: $main-width;
-    max-width: $main-max-width;
+
     min-height: 30em;
-    max-height: 30em;
+    max-height: 35em;
+    margin: 0 auto;
   }
 
   .grid {
     flex-direction: row;
-    justify-content: space-around;
-    padding: 10px 0 0 6px;
+    justify-content: space-between;
+    width: 80vw;
+    padding-left: 10px;
+
   }
 
  a.fancybox {
@@ -380,7 +374,7 @@ hr {
  }
 
  .grid-item {
-   margin: calc((100% - (3 * 20rem) - 10px) / 6);
+
    // (main-width - (number of items in grid row * grid-item width) - scrollbar width) / num of blank spaces
    width: 20rem;
  }
@@ -394,9 +388,7 @@ hr {
    margin: 0 auto;
  }
 
- .footer{
-   margin-bottom: 20px;
- }
+
 
   /* --------------------------------------------------------------
      ------------------------- About/CV ---------------------------

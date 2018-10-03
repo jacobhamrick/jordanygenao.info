@@ -29,7 +29,7 @@
 				smallBtn: "auto",
 				toolbar: "auto",
 				buttons: ["zoom", "thumbs", "close"],
-				idleTime: 3,
+				idleTime: 2, // changes idle time before fadeout!!!!
 				protect: !1,
 				modal: !1,
 				image: {
@@ -52,10 +52,10 @@
 				},
 				defaultType: "image",
 				animationEffect: "zoom",
-				animationDuration: 366,
+				animationDuration: 0,
 				zoomOpacity: "auto",
 				transitionEffect: "fade",
-				transitionDuration: 366,
+				transitionDuration: 0,
 				slideClass: "",
 				baseClass: "",
 				baseTpl: '<div class="fancybox-container" role="dialog" tabindex="-1"><div class="fancybox-bg"></div><div class="fancybox-inner"><div class="fancybox-toolbar">{{buttons}}</div><div class="fancybox-navigation">{{arrows}}</div><div class="fancybox-stage"></div><div class="fancybox-infobox"><div class="fancybox-caption"></div><div class="fancybox-infobar"><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span></div></div></div></div>',
@@ -111,7 +111,7 @@
 				dblclickSlide: !1,
 				dblclickOutside: !1,
 				mobile: {
-					idleTime: !1,
+					idleTime: false,
 					clickContent: function(t, e) {
 						return "image" === t.type && "toggleControls"
 					},
