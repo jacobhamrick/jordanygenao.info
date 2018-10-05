@@ -111,6 +111,7 @@
 				dblclickSlide: !1,
 				dblclickOutside: !1,
 				mobile: {
+					preventCaptionOverlap: true,
 					idleTime: false,
 					clickContent: function(t, e) {
 						return "image" === t.type && "toggleControls"

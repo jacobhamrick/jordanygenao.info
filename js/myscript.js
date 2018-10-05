@@ -2,9 +2,13 @@ $(document).ready(function() {
   //isotope init
   var $grid = $('.grid');
   $grid.isotope({
-    layoutMode : 'masonry',
+    percentPosition: true,
+    layoutMode : 'packery',
     itemSelector: '.grid-item',
     percentPosition: true,
+    packery: {
+      gutter: '.gutter-sizer'
+    },
     animationOptions: {
       duration: 750,
       easing: 'swipe',
@@ -51,7 +55,7 @@ $(document).ready(function() {
   });
 
   //scroll to top after clicking filter
-  $('.btn').on("click",function(){
+  $('.btn').on("click", function(){
       $('.portfolio').scrollTop(0);
   });
 

@@ -1,8 +1,6 @@
 body {
-  /* Margin bottom by footer height */
   height: 100vh;
-  /*background: rgb(204,136,0);
-  background: linear-gradient(0deg, rgba(204,136,0,1) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 100%);*/ }
+  overflow-y: hidden; }
 
 /* ------ fonts ------ */
 /* ------ colors ------ */
@@ -103,7 +101,7 @@ hr {
   font-size: 4vw; }
 
 #artFilters button {
-  font-family: "Helvetica", sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 0;
   font-size: 3.3vw;
   text-transform: lowercase;
@@ -147,20 +145,29 @@ hr {
 /* --------------------------------------------------------------
    ------------------------ Work Page ---------------------------
    -------------------------------------------------------------- */
+a.fancybox {
+  outline: none; }
+
 .portfolio {
   max-height: 100%;
   overflow-y: auto;
   background-color: #fff;
   margin: 0 auto; }
 
+.gutter-sizer {
+  width: 0;
+  height: 2em; }
+
 .grid {
   width: 80vw;
   display: none;
   /* stops content from flashing before fading in */
   flex-direction: column;
-  justify-content: space-around;
-  margin: 0 auto;
-  position: relative; }
+  justify-content: space-between;
+  margin: 0 auto 130px auto;
+  /* 130px prevents footer overlap */
+  position: relative;
+  min-height: 100vh; }
 
 .grid-item {
   margin: 10px 0; }
@@ -190,8 +197,9 @@ hr {
 #aboutDiv {
   display: none;
   /* stops content from flashing before fading in */
-  margin: 0;
-  padding: 10px 15%; }
+  margin: 0 auto;
+  width: 80vw;
+  min-height: 86vh; }
 
 .cvYear {
   font-weight: bold; }
@@ -210,22 +218,26 @@ hr {
    -------------------------------------------------------------- */
 .footer {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   font-size: 10px;
   color: #000;
+  bottom: 0;
   background-color: #fff;
-  width: 100vw;
+  width: 100%;
   /*border: $pink-borders;*/
   border-top: none;
-  height: 20px;
+  height: 40px;
   margin: 0 auto;
-  position: absolute; }
+  position: fixed; }
   .footer p {
-    margin: 0; }
+    margin: 0 auto; }
   .footer a {
     color: #000; }
+  .footer a:hover {
+    color: #ff80dd; }
 
 /* -----------------------------------------------------------------------------
    ------------------------------ Larger Screens -------------------------------
@@ -235,16 +247,22 @@ hr {
     height: 100vh;
     padding: 0; }
   /***** Scrollbar *****/
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb:window-inactive {
+    display: block; }
+  /***** Scrollbar *****/
   ::-webkit-scrollbar {
     width: 10px; }
   ::-webkit-scrollbar-track {
     -webkit-border-radius: 20px;
     border-radius: 0;
-    border: 1px solid #ff80dd; }
+    border: none; }
   ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 0;
     border-radius: 0;
-    background: #000; }
+    background: #ff80dd; }
   ::-webkit-scrollbar-thumb:window-inactive {
     background: #fff; }
   /***** end of scrollbar *****/
@@ -258,6 +276,8 @@ hr {
     width: 50%; }
     #jgBanner img {
       height: 10em; }
+  #mainMenu {
+    margin-bottom: 0; }
   /* only on the work page */
   .filterBar {
     flex-direction: row;
@@ -269,34 +289,42 @@ hr {
     justify-content: space-between;
     width: 100%; }
   #jG {
-    font-size: 2.8vw; }
+    font-size: 2vw; }
   #menuBar a,
   #artFilters button {
     font-family: "Poppins", sans-serif;
-    font-size: 2vw; }
+    font-size: 1.5vw; }
   /* --------------------------------------------------------------
      ------------------------ Work Page ---------------------------
      -------------------------------------------------------------- */
+  #mainMenu,
+  .grid,
   .portfolio {
-    width: 80vw;
-    min-height: 30em;
-    max-height: 35em;
-    margin: 0 auto; }
+    width: 60vw; }
   .grid {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 80vw;
-    padding-left: 10px; }
-  a.fancybox {
-    outline: none; }
-  .grid-item {
-    width: 20rem; }
+    margin-bottom: 0;
+    position: absolute;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    max-width: 100%;
+    /* helps hide x-scroll */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* would otherwise have two scrollbars */ }
   /* clearfix */
   .grid:after {
     content: '';
     clear: both;
     visibility: hidden;
-    padding: 50px 0px 10px 0px;
+    margin: 0 auto; }
+  .grid-item {
+    width: 30%; }
+  .gutter-sizer {
+    width: 4%; }
+  .portfolio {
+    /* portfolio scrolls (contains the y-scroll)) */
+    min-height: 30em;
+    max-height: 35em;
     margin: 0 auto; }
   /* --------------------------------------------------------------
      ------------------------- About/CV ---------------------------
@@ -312,7 +340,8 @@ hr {
     display: none;
     /* stops content from flashing before fading in */
     margin: 0;
-    padding: 20px 10em; }
+    width: 100%;
+    min-height: 100%; }
   .cvYear {
     font-weight: bold; }
   .cvTitle {

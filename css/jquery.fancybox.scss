@@ -184,7 +184,7 @@ body.compensate-for-scrollbar {
 	background: #fff;
 	display: inline-block;
 	margin: 0 0 6px;
-	max-width: 100%;
+	width: 100%;
 	overflow: auto;
 	padding: 0;
 	position: relative;
@@ -196,14 +196,11 @@ body.compensate-for-scrollbar {
 	animation-timing-function: cubic-bezier(.5, 0, .14, 1);
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-	display: flex;
 	background: transparent;
 	text-align: center;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	margin: 0 auto;
-	height: 100%;
-	max-width: none;
 	overflow: visible;
 	padding: 0;
 	position: absolute;
@@ -245,11 +242,9 @@ body.compensate-for-scrollbar {
 	background: transparent;
 	text-align: center;
 	border: 0;
-	height: 100%;
+	width: 75%;
 	margin: 0 auto;
-	max-height: 450px;
-	padding: 0;
-	top: 0;
+	transform: translateY(100px);
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -262,6 +257,7 @@ body.compensate-for-scrollbar {
 
 .fancybox-slide--html .fancybox-content {
 	margin-bottom: 6px
+
 }
 
 .fancybox-slide--iframe .fancybox-content, .fancybox-slide--map .fancybox-content, .fancybox-slide--video .fancybox-content {
@@ -269,7 +265,8 @@ body.compensate-for-scrollbar {
 	margin: 0;
 	overflow: visible;
 	padding: 0;
-	width: 100%
+	width: 100%;
+	    transform: translate(0px, 0);
 }
 
 .fancybox-slide--video .fancybox-content {
@@ -282,7 +279,6 @@ body.compensate-for-scrollbar {
 
 .fancybox-slide--iframe .fancybox-content {
 	background: #fff;
-	height: calc(100% - 44px);
 	margin-bottom: 44px
 }
 
@@ -848,10 +844,10 @@ body.compensate-for-scrollbar {
 	.fancybox-image, .fancybox-spaceball {
 		background: transparent;
 		border: 0;
-		height: 100%;
 		margin: auto;
-		max-height: 600px;
+		min-width: 90%;
+		max-width: 120%;
+		transform: translateY(25px); /* translate back with space */
 		padding: 0;
-		top: 0;
 	}
 }
