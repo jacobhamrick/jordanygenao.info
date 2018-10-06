@@ -1,0 +1,356 @@
+body {
+  height: 100vh;
+  overflow-y: hidden; }
+
+/* ------ fonts ------ */
+/* ------ colors ------ */
+/* ------ menu + grid settings ------ */
+/***** Scrollbar *****/
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:window-inactive {
+  display: none; }
+
+/* Misc global styles */
+a {
+  color: #000; }
+
+p {
+  margin-bottom: 0; }
+
+hr {
+  margin: 0;
+  border-top: 1px solid #ff80dd; }
+
+.active {
+  color: #ff80dd; }
+
+/* --------------------------------------------------------------
+   ----------------- Entrance / Landing Page --------------------
+   -------------------------------------------------------------- */
+.sockDiv {
+  text-align: center;
+  position: fixed;
+  display: block;
+  width: 100%;
+  bottom: 100px; }
+  .sockDiv a:hover {
+    text-decoration: none;
+    color: #ff80dd; }
+
+.sockImg {
+  -webkit-transition: transform 0.5s;
+  transition: transform 0.5s;
+  height: 100px; }
+
+.sockImg:hover {
+  transform: scale(8) translateY(-30px) translateX(-10px);
+  -webkit-transition: transform 10s;
+  transition: transform 10s; }
+
+.entranceImg {
+  background-image: url("/images/entrance.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 100%; }
+
+/* --------------------------------------------------------------
+   --------------------- Banner and Menu ------------------------
+   -------------------------------------------------------------- */
+#jgBanner {
+  display: none; }
+
+#mainMenu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80vw;
+  /*border: $pink-borders;*/
+  background-color: white;
+  z-index: 100;
+  margin: 10px auto; }
+
+#jG,
+#menuBar,
+#artFilters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: auto;
+  border-bottom: 1px solid #ff80dd;
+  width: 100%;
+  color: #000;
+  background-color: #fff; }
+
+#jG,
+#menuBar {
+  font-family: "Poppins", sans-serif;
+  margin: 0 auto;
+  text-transform: uppercase; }
+
+#jG {
+  justify-content: center;
+  font-size: 5vw; }
+
+#menuBar a {
+  font-size: 4vw; }
+
+#artFilters button {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  font-size: 3.3vw;
+  text-transform: lowercase;
+  background: #fff; }
+
+#artFilters button:focus, #artFilters button:focus {
+  outline: 0 none;
+  box-shadow: none;
+  color: #ff80dd; }
+
+#artFilters button.btn.selected {
+  color: #ff80dd; }
+
+/* hover links PINK */
+#jG:hover,
+#mainMenu a:hover,
+.textLink a:hover,
+#artFilters button:hover,
+.footer a:hover {
+  transition: 0.5s ease;
+  color: #ff80dd;
+  text-decoration: none; }
+
+#jG:focus,
+#mainMenu a:focus,
+.textLink a:focus,
+#artFilters button:focus,
+.footer a:hover {
+  color: #000;
+  text-decoration: none; }
+
+/* --------------------------------------------------------------
+   ------------------------ Home Page ---------------------------
+   -------------------------------------------------------------- */
+.welcomeHomeImg {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; }
+
+/* --------------------------------------------------------------
+   ------------------------ Work Page ---------------------------
+   -------------------------------------------------------------- */
+a.fancybox {
+  outline: none; }
+
+.portfolio {
+  max-height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background-color: #fff;
+  margin: 0 auto; }
+
+.gutter-sizer {
+  width: 0;
+  height: 2em; }
+
+.grid {
+  width: 80vw;
+  display: none;
+  /* stops content from flashing before fading in */
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto 130px auto;
+  /* 130px prevents footer overlap */
+  position: relative;
+  min-height: 100vh; }
+
+.grid-item {
+  margin: 10px 0; }
+  .grid-item img {
+    width: 100%; }
+
+/* clearfix */
+.grid:after {
+  content: '';
+  clear: both;
+  visibility: hidden;
+  padding: 50px 0px 10px 0px;
+  margin: 0 auto; }
+
+/* --------------------------------------------------------------
+   ------------------------- About/CV ---------------------------
+   -------------------------------------------------------------- */
+.aboutText {
+  text-align: justify;
+  text-justify: inter-ideograph; }
+
+#cvDiv,
+#aboutDiv {
+  display: none;
+  /* stops content from flashing before fading in */
+  position: absolute;
+  margin-left: 10%;
+  width: 80vw;
+  min-height: 100vh;
+  padding-bottom: 50px; }
+
+.cvYear {
+  font-weight: bold; }
+
+.cvTitle {
+  font-weight: bold;
+  font-size: 14px; }
+
+.cvText, .cvTitle, .cvYear, .aboutText, #aboutDiv p, .textLink {
+  display: inline-block;
+  color: #000;
+  font-size: 12px; }
+
+/* --------------------------------------------------------------
+   -------------------------- Footer ----------------------------
+   -------------------------------------------------------------- */
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 8px;
+  color: #000;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  /*border: $pink-borders;*/
+  border-top: none;
+  height: 18px;
+  margin: 0 auto;
+  position: fixed; }
+  .footer p {
+    margin: 0 auto; }
+  .footer a {
+    color: #000; }
+  .footer a:hover {
+    color: #ff80dd; }
+
+/* -----------------------------------------------------------------------------
+   ------------------------------ Larger Screens -------------------------------
+   -------------------------------------------------------------------------- */
+@media screen and (min-width: 768px) {
+  body {
+    height: 100vh;
+    padding: 0; }
+  .entranceImg {
+    background-size: 60vw; }
+  .footer {
+    height: 25px;
+    font-size: 10px; }
+  .sockDiv {
+    bottom: 3em; }
+  /***** Scrollbar *****/
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-thumb:window-inactive {
+    display: block; }
+  /***** Scrollbar *****/
+  ::-webkit-scrollbar {
+    width: 10px; }
+  ::-webkit-scrollbar-track {
+    -webkit-border-radius: 20px;
+    border-radius: 0;
+    border: none; }
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: #ff80dd; }
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background: #fff; }
+  /***** end of scrollbar *****/
+  /* --------------------------------------------------------------
+   --------------------- Banner and Menu ------------------------
+   -------------------------------------------------------------- */
+  #jgBanner {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 50%; }
+    #jgBanner img {
+      height: 10em; }
+  #mainMenu {
+    margin-bottom: 0; }
+  /* only on the work page */
+  .filterBar {
+    flex-direction: row;
+    justify-content: space-around;
+    height: 30px; }
+  #artFilters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%; }
+  #jG {
+    font-size: 2vw; }
+  #menuBar a,
+  #artFilters button {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5vw; }
+  /* --------------------------------------------------------------
+     ------------------------ Work Page ---------------------------
+     -------------------------------------------------------------- */
+  #mainMenu,
+  .grid,
+  .portfolio {
+    width: 60vw; }
+  .grid {
+    margin-bottom: 0;
+    position: absolute;
+    padding-bottom: 50px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    max-width: 100%;
+    /* helps hide x-scroll */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* would otherwise have two scrollbars */ }
+  /* clearfix */
+  .grid:after {
+    content: '';
+    clear: both;
+    visibility: hidden;
+    margin: 0 auto; }
+  .grid-item {
+    width: 30%; }
+  .gutter-sizer {
+    width: 4%; }
+  .portfolio {
+    /* portfolio scrolls (contains the y-scroll)) */
+    min-height: 30em;
+    max-height: 35em;
+    margin: 0 auto; }
+  /* --------------------------------------------------------------
+     ------------------------- About/CV ---------------------------
+     -------------------------------------------------------------- */
+  #cvDiv,
+  #aboutDiv {
+    display: none;
+    /* stops content from flashing before fading in */
+    margin: 10px 0;
+    width: 60vw; }
+  .aboutText {
+    margin-bottom: 10px; }
+  .cvYear {
+    font-weight: bold; }
+  .cvTitle {
+    font-weight: bold;
+    font-size: 14px; }
+  .cvText,
+  .cvTitle,
+  .cvYear,
+  .aboutText,
+  #aboutDiv p,
+  .textLink {
+    display: inline-block;
+    color: #000;
+    font-size: 12px; } }
