@@ -20,7 +20,7 @@ p {
   margin-bottom: 0; }
 
 hr {
-  margin: 5px 0;
+  margin: 0;
   border-top: 1px solid #ff80dd; }
 
 .active {
@@ -35,9 +35,6 @@ hr {
   display: block;
   width: 100%;
   bottom: 100px; }
-  .sockDiv p {
-    font-size: 12px;
-    text-transform: capitalize; }
   .sockDiv a:hover {
     text-decoration: none;
     color: #ff80dd; }
@@ -54,10 +51,9 @@ hr {
 
 .entranceImg {
   background-image: url("/images/entrance.jpg");
-  width: 1vw;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
-  background-size: 80vw; }
+  background-size: 100%; }
 
 /* --------------------------------------------------------------
    --------------------- Banner and Menu ------------------------
@@ -150,7 +146,8 @@ a.fancybox {
 
 .portfolio {
   max-height: 100%;
-  overflow-y: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   background-color: #fff;
   margin: 0 auto; }
 
@@ -189,17 +186,15 @@ a.fancybox {
   text-align: justify;
   text-justify: inter-ideograph; }
 
-#aboutDiv {
-  margin-left: 5px;
-  /* accomodates scrollbar width, centering looks better */ }
-
 #cvDiv,
 #aboutDiv {
   display: none;
   /* stops content from flashing before fading in */
-  margin: 0 auto;
+  position: absolute;
+  margin-left: 10%;
   width: 80vw;
-  min-height: 86vh; }
+  min-height: 100vh;
+  padding-bottom: 50px; }
 
 .cvYear {
   font-weight: bold; }
@@ -222,14 +217,14 @@ a.fancybox {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 10px;
+  font-size: 8px;
   color: #000;
   bottom: 0;
   background-color: #fff;
   width: 100%;
   /*border: $pink-borders;*/
   border-top: none;
-  height: 40px;
+  height: 30px;
   margin: 0 auto;
   position: fixed; }
   .footer p {
@@ -246,6 +241,13 @@ a.fancybox {
   body {
     height: 100vh;
     padding: 0; }
+  .entranceImg {
+    background-size: 60vw; }
+  .footer {
+    height: 50px;
+    font-size: 10px; }
+  .sockDiv {
+    bottom: 3em; }
   /***** Scrollbar *****/
   ::-webkit-scrollbar,
   ::-webkit-scrollbar-track,
@@ -329,19 +331,12 @@ a.fancybox {
   /* --------------------------------------------------------------
      ------------------------- About/CV ---------------------------
      -------------------------------------------------------------- */
-  .aboutText {
-    text-align: justify;
-    text-justify: inter-ideograph; }
-  #aboutDiv {
-    margin-left: 5px;
-    /* accomodates scrollbar width, centering looks better */ }
   #cvDiv,
   #aboutDiv {
     display: none;
     /* stops content from flashing before fading in */
     margin: 0;
-    width: 100%;
-    min-height: 100%; }
+    width: 60vw; }
   .cvYear {
     font-weight: bold; }
   .cvTitle {
