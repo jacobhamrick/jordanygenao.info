@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   overflow-y: hidden;
 }
@@ -90,7 +92,7 @@ hr {
   justify-content: center;
   width: $mobile-width;
   /*border: $pink-borders;*/
-  background-color: white;
+  background: none;
   z-index: 100;
   margin: 10px auto;
  }
@@ -179,12 +181,17 @@ hr {
    outline: none;
  }
 
-.portfolio {
+.portfolio,
+#nonPortfolio {
   max-height: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   background-color: #fff;
   margin: 0 auto;
+}
+
+.portfolio {
+  height: 100vh; /* keeps from jumping on load */
 }
 
 .gutter-sizer {
@@ -197,9 +204,9 @@ hr {
   display: none; /* stops content from flashing before fading in */
   flex-direction: column;
   justify-content: space-between;
-  margin: 0 auto 130px auto; /* 130px prevents footer overlap */
+  margin: 0 auto 30px auto; /* 30px prevents footer overlap  even with flex (?) */
   position: relative;
-  min-height: 100vh;
+  min-height: 1000vh;
  }
 
  .grid-item {
@@ -231,11 +238,7 @@ hr {
 #cvDiv,
 #aboutDiv {
   display: none; /* stops content from flashing before fading in */
-  position: absolute;
-  margin-left: 10%;
   width: $mobile-width;
-  min-height: 100vh;
-  padding-bottom: 50px;
 }
 
 .cvYear {
@@ -262,15 +265,15 @@ hr {
   justify-content: center;
   align-items: center;
 	text-align: center;
-	font-size: 8px;
+	font-size: 10px;
 	color: #000;
   bottom: 0;
 	background-color: #fff;
 	width: 100%;
   /*border: $pink-borders;*/
   border-top: none;
-	height: 30px;
-	margin: 0 auto;
+	height: 24px;
+	margin: auto auto 0 auto;
   position: fixed;
     p{
       margin: 0 auto;
@@ -298,8 +301,7 @@ hr {
   }
 
   .footer {
-    height: 50px;
-    font-size: 10px;
+    height: 40px;
   }
   .sockDiv {
     bottom: 3em;
@@ -340,36 +342,45 @@ hr {
    justify-content: center;
    margin: 0 auto;
    width: 50%;
+   min-height: 100px;
    img {
-     height: 10em;
+     height: 8em;
    }
  }
 
  #mainMenu {
-  margin-bottom: 0;
- }
-  /* only on the work page */
-  .filterBar {
-   flex-direction: row;
-   justify-content: space-around;
-   height: 30px;
-  }
-
-  #artFilters {
    display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+ }
+
+ #jG {
+   font-size: 2vw;
+ }
+
+  /* only on the work page */
+  .filterBar,
+  #menuBar,
+  #artFilters,
+  a#jG {
    flex-direction: row;
    justify-content: space-between;
+   align-items: center;
    width: 100%;
+   height: 4em;
+   background: none;
   }
 
-  #jG {
-    font-size: 2vw;
+  a#jG {
+    justify-content: center;
+    height: 2.5em;
   }
 
   #menuBar a,
   #artFilters button {
     font-family: "Poppins", sans-serif;
     font-size: 1.5vw;
+    background: none;
   }
 
   /* --------------------------------------------------------------
@@ -377,9 +388,10 @@ hr {
      -------------------------------------------------------------- */
   #mainMenu,
   .grid,
-  .portfolio {
+  .portfolio,
+  #nonPortfolio {
      width: $large-screen-width;
-   }
+  }
 
    .grid {
      margin-bottom: 0;
@@ -387,8 +399,10 @@ hr {
      flex-wrap: wrap;
      overflow-y: scroll;
      max-width: 100%; /* helps hide x-scroll */
+     min-height: 100vh;
      overflow-x: hidden;
      overflow-y: hidden; /* would otherwise have two scrollbars */
+     padding-bottom: 50px;
    }
 
    /* clearfix */
@@ -410,18 +424,29 @@ hr {
   .portfolio {
     /* portfolio scrolls (contains the y-scroll)) */
     min-height: 30em;
-    max-height: 35em;
     margin: 0 auto;
+
   }
 
   /* --------------------------------------------------------------
      ------------------------- About/CV ---------------------------
      -------------------------------------------------------------- */
+  #nonPortfolio {
+    overflow-y: hidden; /* removes scrollbar spacing */
+    height: 100vh;
+    margin: 0 auto;
+  }
+
   #cvDiv,
   #aboutDiv {
     display: none; /* stops content from flashing before fading in */
-  	margin: 0;
-    width: $large-screen-width;
+  	margin: 10px auto;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .aboutText {
+    margin-bottom: 10px;
   }
 
   .cvYear {

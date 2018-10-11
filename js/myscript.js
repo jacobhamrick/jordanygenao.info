@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   //isotope init
   var $grid = $('.grid');
@@ -16,14 +17,20 @@ $(document).ready(function() {
     },
   });
 
+
+  //fade in divs on load - note that css init settings hide divs
+  $grid.fadeIn(1000);
+  $('div#artFilters').fadeIn(1000);
+  $('div#aboutDiv').fadeIn(1000);
+  $('div#cvDiv').fadeIn(1000);
+
   $grid.imagesLoaded().progress( function() {
     $grid.isotope('layout');
   });
 
-  //fade in divs on load - note that css init settings hide divs
-  $grid.css('display', 'flex').hide().fadeIn(600);
-  $('div#aboutDiv').fadeIn(600);
-  $('div#cvDiv').hide().fadeIn(600);
+
+
+
 
   //highlights active art filter links
   $('.btn').on('click', function() {

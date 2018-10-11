@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   overflow-y: hidden; }
 
@@ -67,7 +69,7 @@ hr {
   justify-content: center;
   width: 80vw;
   /*border: $pink-borders;*/
-  background-color: white;
+  background: none;
   z-index: 100;
   margin: 10px auto; }
 
@@ -144,12 +146,17 @@ hr {
 a.fancybox {
   outline: none; }
 
-.portfolio {
+.portfolio,
+#nonPortfolio {
   max-height: 100%;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   background-color: #fff;
   margin: 0 auto; }
+
+.portfolio {
+  height: 100vh;
+  /* keeps from jumping on load */ }
 
 .gutter-sizer {
   width: 0;
@@ -161,10 +168,10 @@ a.fancybox {
   /* stops content from flashing before fading in */
   flex-direction: column;
   justify-content: space-between;
-  margin: 0 auto 130px auto;
-  /* 130px prevents footer overlap */
+  margin: 0 auto 30px auto;
+  /* 30px prevents footer overlap  even with flex (?) */
   position: relative;
-  min-height: 100vh; }
+  min-height: 1000vh; }
 
 .grid-item {
   margin: 10px 0; }
@@ -190,11 +197,7 @@ a.fancybox {
 #aboutDiv {
   display: none;
   /* stops content from flashing before fading in */
-  position: absolute;
-  margin-left: 10%;
-  width: 80vw;
-  min-height: 100vh;
-  padding-bottom: 50px; }
+  width: 80vw; }
 
 .cvYear {
   font-weight: bold; }
@@ -217,15 +220,15 @@ a.fancybox {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 8px;
+  font-size: 10px;
   color: #000;
   bottom: 0;
   background-color: #fff;
   width: 100%;
   /*border: $pink-borders;*/
   border-top: none;
-  height: 30px;
-  margin: 0 auto;
+  height: 24px;
+  margin: auto auto 0 auto;
   position: fixed; }
   .footer p {
     margin: 0 auto; }
@@ -244,8 +247,7 @@ a.fancybox {
   .entranceImg {
     background-size: 60vw; }
   .footer {
-    height: 50px;
-    font-size: 10px; }
+    height: 40px; }
   .sockDiv {
     bottom: 3em; }
   /***** Scrollbar *****/
@@ -275,33 +277,42 @@ a.fancybox {
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    width: 50%; }
+    width: 50%;
+    min-height: 100px; }
     #jgBanner img {
-      height: 10em; }
+      height: 8em; }
   #mainMenu {
-    margin-bottom: 0; }
-  /* only on the work page */
-  .filterBar {
-    flex-direction: row;
-    justify-content: space-around;
-    height: 30px; }
-  #artFilters {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%; }
+    flex-direction: column;
+    margin: 0 auto; }
   #jG {
     font-size: 2vw; }
+  /* only on the work page */
+  .filterBar,
+  #menuBar,
+  #artFilters,
+  a#jG {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 4em;
+    background: none; }
+  a#jG {
+    justify-content: center;
+    height: 2.5em; }
   #menuBar a,
   #artFilters button {
     font-family: "Poppins", sans-serif;
-    font-size: 1.5vw; }
+    font-size: 1.5vw;
+    background: none; }
   /* --------------------------------------------------------------
      ------------------------ Work Page ---------------------------
      -------------------------------------------------------------- */
   #mainMenu,
   .grid,
-  .portfolio {
+  .portfolio,
+  #nonPortfolio {
     width: 60vw; }
   .grid {
     margin-bottom: 0;
@@ -310,9 +321,11 @@ a.fancybox {
     overflow-y: scroll;
     max-width: 100%;
     /* helps hide x-scroll */
+    min-height: 100vh;
     overflow-x: hidden;
     overflow-y: hidden;
-    /* would otherwise have two scrollbars */ }
+    /* would otherwise have two scrollbars */
+    padding-bottom: 50px; }
   /* clearfix */
   .grid:after {
     content: '';
@@ -326,17 +339,24 @@ a.fancybox {
   .portfolio {
     /* portfolio scrolls (contains the y-scroll)) */
     min-height: 30em;
-    max-height: 35em;
     margin: 0 auto; }
   /* --------------------------------------------------------------
      ------------------------- About/CV ---------------------------
      -------------------------------------------------------------- */
+  #nonPortfolio {
+    overflow-y: hidden;
+    /* removes scrollbar spacing */
+    height: 100vh;
+    margin: 0 auto; }
   #cvDiv,
   #aboutDiv {
     display: none;
     /* stops content from flashing before fading in */
-    margin: 0;
-    width: 60vw; }
+    margin: 10px auto;
+    overflow: hidden;
+    width: 100%; }
+  .aboutText {
+    margin-bottom: 10px; }
   .cvYear {
     font-weight: bold; }
   .cvTitle {
