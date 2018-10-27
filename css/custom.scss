@@ -147,7 +147,6 @@ hr {
 /* hover links PINK */
 #jG:hover,
 #mainMenu a:hover,
-.textLink a:hover,
 #artFilters button:hover,
 .footer a:hover {
  transition: 0.5s ease;
@@ -256,6 +255,11 @@ hr {
 	font-size: 12px;
 }
 
+.textLink:hover {
+ transition: 0.5s ease;
+ color: $pink;
+ text-decoration: none;
+}
 /* --------------------------------------------------------------
    -------------------------- Footer ----------------------------
    -------------------------------------------------------------- */
